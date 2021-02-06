@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Page Parser</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+        <link rel="stylesheet" href="../css/shards.min.css">
+    </head>
+	<body>
+		<div class="container my-5">
+			<h2 class="mb-5">Page Parser</h2>
+			<form action="#" th:action="@{/}" th:object="${parsingDto}" method="post">
+				<div class="form-group" style="margin-bottom:20px">
+					<label for="pageUrl">Page URL:</label>
+					<input type="url" th:field="*{pageUrl}" name="pageUrl" required aria-required="true"/>
+				</div>
+				<button type="submit" class="btn btn-primary" style="margin-right:10px">Submit</button>
+				<button type="reset" class="btn btn-primary">Reset</button>
+			</form>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>Page Parser</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+		<link rel="stylesheet" href="../css/shards.min.css">
+		<link rel="stylesheet" href="../css/parser.css">
+	</head>
+	<body>
+		<div class="container my-5">
+			<div class="row">
+				<div class="col-lg-10">
+					<div>
+						<h2 class="my-6" th:text="${parsingDto.getPageUrl()}"/>
+						<table class="table text-center">
+							<thead>
+								<tr>
+									<th/>
+									<th>H1</th>
+									<th>H2</th>
+									<th>H3</th>
+									<th>Execution Time (in ms)</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>DOM Parser</td>
+									<td th:text="${parsingDto.getDomParserResults().getHeaderContents().get('h1').size()}"/>
+									<td th:text="${parsingDto.getDomParserResults().getHeaderContents().get('h2').size()}"/>
+									<td th:text="${parsingDto.getDomParserResults().getHeaderContents().get('h3').size()}"/>
+									<td th:text="${parsingDto.getDomParserResults().getTimeTakenToComplete()}"/>
+								</tr>
+								<tr>
+									<td>SAX Parser</td>
+									<td th:text="${parsingDto.getSaxParserResults().getHeaderContents().get('h1').size()}"/>
+									<td th:text="${parsingDto.getSaxParserResults().getHeaderContents().get('h2').size()}"/>
+									<td th:text="${parsingDto.getSaxParserResults().getHeaderContents().get('h3').size()}"/>
+									<td th:text="${parsingDto.getSaxParserResults().getTimeTakenToComplete()}"/>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="container">
+						<div class="row">
+							<div class="col-lg" style="margin-right:30px;">
+								<h2 class="my-5 text-center">DOM Parser Results</h2>
+								<div class="container">
+									<div class="row">
+										<div class="col-sm" th:each="mapEntry : ${parsingDto.getDomParserResults().getHeaderContents()}">
+											<h2>
+												<span class="badge bg-success" th:text="${mapEntry.key}"/>
+											</h2>
+											<p th:each="headerContent : ${mapEntry.value}" th:text="${headerContent}"/>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg">
+								<h2 class="my-5 text-center">SAX Parser Results</h2>
+								<div class="container">
+									<div class="row">
+										<div class="col-sm" th:each="mapEntry : ${parsingDto.getSaxParserResults().getHeaderContents()}">
+											<h2>
+												<span class="badge bg-success" th:text="${mapEntry.key}"/>
+											</h2>
+											<p th:each="headerContent : ${mapEntry.value}" th:text="${headerContent}"/>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br>
+					<input type="button" onclick="location.href='/';" value="Parse again" class="btn btn-primary"/>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
