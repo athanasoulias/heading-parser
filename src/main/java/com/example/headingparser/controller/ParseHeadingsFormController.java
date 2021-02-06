@@ -34,12 +34,12 @@ public class ParseHeadingsFormController {
 	}
 	
 	@ExceptionHandler(Exception.class)
-	  public ModelAndView handleError(HttpServletRequest req, Exception ex) {
-	    ModelAndView mav = new ModelAndView();
-	    mav.addObject("exception", ex);
-	    mav.addObject("url", req.getRequestURL());
-	    mav.setViewName("error");
-	    return mav;
-	  }
+	public ModelAndView handleError(HttpServletRequest req, Exception ex) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("exception", ex);
+		mav.addObject("url", req.getRequestURL());
+		mav.setViewName("error");
+		return mav;
+	}
 
 }
