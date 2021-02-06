@@ -1,6 +1,6 @@
 # Heading Parser
 
-This project utilises and compares the results of a DOM and a SAX parser when attempting to locate the contents of all h1,h2,h3 headings in a webpage. 
+This project utilises and compares the results of a DOM and a SAX parser when attempting to locate the contents of all h1,h2 and h3 headings in a webpage. 
 
 
 ## Tech Stack
