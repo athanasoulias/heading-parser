@@ -14,5 +14,5 @@ Maven
 
 ## Usage
 
-To install the application, run mvn spring-boot:run, open a browser and type http://localhost:8080\
+To install the application, run mvn spring-boot:run, open a browser and type http://localhost:8080 \
 To execute the tests, run mvn test\
