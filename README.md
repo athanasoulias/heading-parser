@@ -6,10 +6,10 @@ This project utilises and compares the results of a DOM and a SAX parser when at
 ## Tech Stack
 
 Java 8\
-Spring Boot 2.2.9 (Spring 5, Spring Security, Spring Data JPA)\
+Spring Boot 2.4.2\
 Jsoup\
 Tagsoup\
-Maven\
+Maven
 
 
 ## Usage
