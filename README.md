@@ -7,6 +7,7 @@ This project utilises and compares the results of a DOM and a SAX parser when at
 
 Java 8\
 Spring Boot 2.4.2\
+Thyemeleaf\
 Jsoup\
 Tagsoup\
 Maven
